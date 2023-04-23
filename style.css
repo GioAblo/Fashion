@@ -23,7 +23,20 @@
 
  .header {
      margin-top: 46px;
+     position: sticky;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 99999;
  }
+
+ .header.resp {
+     background: white;
+     padding: 20px 0;
+     transition: all .3s;
+ }
+
 
  .header__inner {
      display: flex;
@@ -56,7 +69,7 @@
      position: relative;
  }
 
-  
+
 
 
  .menu__list-link::after {
@@ -75,6 +88,7 @@
      width: 100%;
  }
 
+ 
 
  .header__btn-link {
      font-style: normal;
@@ -97,6 +111,89 @@
  }
 
 
+
+ .toggle__btn {
+     position: relative;
+     display: none;
+     top: -28px;
+     right: 54px;
+     cursor: pointer;
+
+ }
+
+ .toggle__btn-bar {
+     display: block;
+
+ }
+
+ .toggle__btn-bar::after {
+     content: '';
+
+     background: url(/img/bars-solid.svg) no-repeat;
+     width: 47px;
+     height: 56px;
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0
+ }
+
+ .toggle__btn-x {
+     display: none;
+     ;
+ }
+
+ .toggle__btn-x::after {
+     content: '';
+     position: absolute;
+     background: url(/img/xmark-solid.svg) no-repeat;
+     width: 54px;
+     height: 48px;
+     display: block;
+     position: absolute;
+     top: 3px;
+     left: 5px;
+     right: 0;
+     bottom: 0;
+ }
+
+ .dis-none {
+     display: none;
+ }
+
+ .dis-block {
+     display: block;
+ }
+
+
+
+ .menu__dropdown {
+     display: none;
+     position: absolute;
+     background: white;
+     right: 15px;
+     top: 104px;
+     width: 347px;
+     height: auto;
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+ }
+
+ .menu__dropdown-list {
+     margin: auto;
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+     margin-top: 23px;
+     padding-bottom: 50px;
+     align-items: center;
+ }
+
+ .dropdown__btn {
+     margin-top: 23px;
+ }
 
  /******************************** Unique ********************************/
 
@@ -395,12 +492,11 @@
      width: 1902px;
      display: flex;
      margin-top: 190px;
-     height: 968px;
+     height: auto;
      background: linear-gradient(1.32deg, #E0C340 0.13%, #DFC23E 3.97%, #E1C441 7.2%, #E3C743 10.13%, #E4C542 12.98%, #E6C744 15.99%, #E7C845 19.52%, #E5C643 23.96%, #E6C945 30.43%, #E3C743 36.49%, #E9CA48 42.49%, #EDCE49 49.35%, #F0D44C 55.42%, #F4D84F 61.43%, #F6DA52 65.74%, #F7DB53 72.23%, #F9DD55 77.43%, #F9DF56 83.84%, #FAE157 91.52%, #F9DF56 97.87%);
  }
 
- .payday__left {}
-
+  
  .payday__top-star {
      display: inline-block;
      position: absolute;
@@ -428,7 +524,9 @@
      top: 84px;
  }
 
- .payday__left-img {}
+ .payday__left-img {
+     margin-bottom: 2px;
+ }
 
  .payday__bottom-star {
      display: inline-block;
@@ -577,7 +675,7 @@
 
  .favorite-title span::after {
      content: '';
-     background: url(/img/favorite-brush.png);
+     background: url(/img/favorite-brush.png) no-repeat;
      position: absolute;
      display: block;
      width: 190px;
@@ -668,7 +766,7 @@
  }
 
  .app__download-link img {
-    transition: all .3s;
+     transition: all .3s;
  }
 
  .app__download-link img:hover {
@@ -804,7 +902,7 @@
      gap: 415px;
  }
 
- 
+
 
  .social__media-logo {
      font-style: normal;
@@ -834,6 +932,7 @@
      gap: 14px;
  }
 
+
  .social__media-link {
      border-radius: 15px;
      height: 52px;
@@ -861,8 +960,8 @@
  }
 
  .social__contact {
-    display: flex;
-    gap: 188px;
+     display: flex;
+     gap: 188px;
  }
 
 
@@ -878,13 +977,13 @@
      margin-bottom: 32px;
  }
 
- 
 
- 
+
+
  .socila__contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 31px;
+     display: flex;
+     flex-direction: column;
+     gap: 31px;
  }
 
  .socila__contact-link {
@@ -899,10 +998,638 @@
 
      position: relative;
      width: 100%;
-     transition: all .3s;
  }
- 
+
 
  .socila__contact-link:hover {
-    color: #cac9c9;
+     text-decoration: underline;
  }
+
+
+
+ /**************************** Responsive ***************************/
+
+ @media (max-width: 1260px) {
+
+     .menu,
+     .header__btn {
+         display: none;
+     }
+
+     .toggle__btn {
+         display: block;
+     }
+
+     .menu__dropdown {
+         display: none;
+         position: absolute;
+         background: white;
+         right: 15px;
+         top: 104px;
+         width: 347px;
+         height: auto;
+         border-bottom-left-radius: 20px;
+         border-bottom-right-radius: 20px;
+     }
+
+     .menu__dropdown-list {
+         margin: auto;
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+         margin-top: 23px;
+         padding-bottom: 50px;
+         align-items: center;
+     }
+
+     .dropdown__btn {
+         margin-top: 23px;
+     }
+
+     .menu__dropdown.dis-grid {
+         display: grid;
+     }
+
+     .unique__cont-sect1 {
+         padding: 76px 0px 65px 73px;
+     }
+
+ }
+
+ @media (max-width: 1550px) {
+     .unique__desc {
+         width: 320px;
+     }
+ }
+
+ @media (max-width: 1365px) {
+     .unique__bg {
+         display: none;
+     }
+
+     .unique__cont {
+         display: block;
+     }
+
+     .unique__top-stars {
+         display: none;
+     }
+
+     .unique__bottom-stars {
+         display: none;
+     }
+
+
+
+
+ }
+
+ @media (max-width: 585px) {
+     .unique__cont-sect1 {
+         padding: 76px 0px 65px 50px;
+     }
+
+     .unique__title {
+         font-style: normal;
+         font-weight: 900;
+         font-size: 59px;
+         line-height: 105px;
+         color: #000000;
+         margin-bottom: 40px;
+         position: relative;
+         z-index: 5;
+     }
+
+     .unique__white-let::after {
+         width: 200px;
+         height: 100px;
+         right: 14px;
+         top: -113px;
+
+     }
+
+     .unique__orange-let::after {
+         width: 265px;
+         height: 98px;
+         bottom: 112px;
+         right: 13px;
+     }
+
+     .unique__desc {
+         width: 254px;
+         font-size: 25px;
+         line-height: 38px;
+         margin-bottom: 18px;
+     }
+
+     .unique__btn {
+         width: 200px;
+         gap: 30px;
+         flex-direction: column;
+     }
+ }
+
+ @media (max-width: 1590px) {
+     .unique__sponsor {
+         height: auto;
+         padding: 53px;
+     }
+
+     .unique__sponsor-item {
+         gap: 65px;
+     }
+ }
+
+ @media (max-width: 1365px) {
+     .unique__sponsor-item {
+         gap: 35px;
+     }
+ }
+
+ @media (max-width: 1260px) {
+     .unique__sponsor-item {
+         gap: 40px;
+         flex-wrap: wrap;
+         justify-content: center;
+     }
+ }
+
+ @media (max-width: 1666px) {
+     .arrivals__row {
+         gap: 95px;
+         flex-wrap: wrap;
+         justify-content: center;
+     }
+
+     .arrivals__title {
+         width: auto;
+         padding-left: 30px;
+     }
+ }
+
+ @media (max-width: 540px) {
+
+     .arrivals__title {
+         font-size: 30px;
+         margin-bottom: 50px;
+     }
+
+     .arrivals__row-cont {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+     }
+
+     .arrivals__row-img {
+         width: 310px;
+         height: 460px;
+     }
+
+     .arrivals__row-title {
+         width: 304px;
+     }
+
+     .arrivals__row-name {
+         font-size: 20px;
+         line-height: 30px;
+     }
+
+     .arrivals__row-link {
+         font-size: 14px;
+         line-height: 25px;
+     }
+
+     .arrow {
+         height: 17px;
+     }
+
+ }
+
+ @media (max-width: 1700px) {
+     .payday__right {
+         margin: 100px 0;
+     }
+ }
+
+ @media (max-width: 1600px) {
+     .payday__right {
+         margin: 95px 0;
+     }
+
+     .payday__right-title {
+         font-size: 80.608px;
+         line-height: 137px;
+     }
+
+     .payday__right-title span::after {
+         height: 153px;
+         width: 464px;
+         top: -152px;
+         left: -23px;
+     }
+
+     .payday__right-sale h4 {
+         font-size: 29.0402px;
+         line-height: 60px;
+         margin-top: 33px;
+     }
+
+     .payday__right-date {
+         margin-top: 52px;
+     }
+
+     .payday__right-date div {
+         font-size: 30.0402px;
+         line-height: 52px;
+
+     }
+
+     .payday__right-date div {
+         font-size: 28.0402px;
+         line-height: 50px;
+     }
+
+     .payday__right-date a {
+
+         font-size: 27.9021px;
+         padding: 23px 42px;
+     }
+
+ }
+
+ @media (max-width: 1500px) {
+     .payday__right-title {
+         font-size: 58.608px;
+         line-height: 110px;
+     }
+
+     .payday__right-title span::after {
+         height: 134px;
+         width: 325px;
+         top: -136px;
+         left: -23px;
+     }
+
+     .payday__right-sale h4 {
+         font-size: 25.0402px;
+         line-height: 50px;
+         margin-top: 25px;
+     }
+
+     .payday__right-date {
+         margin-top: 37px;
+     }
+
+     .payday__right-date div {
+         font-size: 23.0402px;
+         line-height: 47px;
+     }
+
+     .payday__right-date h4 {
+
+         font-size: 28.0402px;
+         line-height: 47px;
+         margin-bottom: 65px;
+     }
+
+     .payday__right-date a {
+         font-size: 27.9021px;
+         padding: 20px 34px;
+     }
+
+ }
+
+
+ @media (max-width: 1380px) {
+     .payday {
+         justify-content: center;
+     }
+
+     .payday__left {
+         display: none;
+     }
+
+     .payday__right {
+         padding-left: 35px;
+     }
+
+     .payday__right-title {
+         font-size: 111.608px;
+         line-height: 137px;
+     }
+
+     .payday__right-title span::after {
+         height: 150px;
+         width: 543px;
+         top: -149px;
+         left: -26px;
+     }
+
+     .payday__right-sale h4 {
+         font-size: 36.0402px;
+         line-height: 52px;
+         margin-top: 33px;
+     }
+
+     .payday__right-date {
+         margin-top: 40px;
+     }
+
+     .payday__right-date div {
+         font-size: 36.0402px;
+         line-height: 52px;
+     }
+
+     .payday__right-date h4 {
+
+         font-size: 36.0402px;
+         line-height: 52px;
+         margin-bottom: 73px;
+     }
+
+     .payday__right-date a {
+         font-size: 27.9021px;
+         padding: 28px 53px;
+
+     }
+
+ }
+
+
+ @media (max-width: 600px) {
+     .payday__right {
+         margin: 95px 40px;
+     }
+
+     .payday__right-title {
+         font-size: 61.608px;
+         line-height: 81px;
+     }
+
+     .payday__right-title span::after {
+         height: 84px;
+         width: 290px;
+         top: -94px;
+         left: -12px;
+     }
+
+     .payday__right-sale h4 {
+         font-size: 25.0402px;
+         line-height: 50px;
+     }
+
+     .payday__right-date div {
+         font-size: 23.0402px;
+         line-height: 44px;
+     }
+
+     .payday__right-date h4 {
+         font-size: 28.0402px;
+         line-height: 38px;
+         margin-bottom: 54px;
+     }
+
+     .payday__right-date a {
+         font-size: 22.9021px;
+         padding: 18px 20px;
+     }
+ }
+
+ @media (max-width: 1630px) {
+     .favorite__row-bott {
+
+         width: 748px;
+     }
+
+     .favorite__row-item>img {
+         width: 753px;
+         height: 519px;
+     }
+ }
+
+
+ @media (max-width: 1580px) {
+     .favorite__row {
+
+         gap: 23px;
+     }
+
+     .favorite__row-item>img {
+         width: 640px;
+         height: 450px;
+     }
+
+     .favorite__row-bott {
+         width: 640px;
+     }
+
+     .favorite__row-desc {
+         margin-top: 18px;
+
+     }
+
+     .favorite__row-soc {
+
+         font-size: 24px;
+         line-height: 41px;
+
+     }
+
+     .favorite__row-link {
+
+         font-size: 22px;
+         line-height: 37px;
+
+     }
+ }
+
+ @media (max-width: 1336px) {
+     .favorite-title {
+
+         margin-bottom: 50px;
+     }
+
+     .favorite__row-item>img {
+         width: 578px;
+         height: 408px;
+     }
+
+     .favorite__row-bott {
+         width: 580px;
+     }
+ }
+
+
+
+ @media (max-width: 1220px) {
+     .favorite-title {
+         margin-bottom: 40px;
+         font-size: 30px;
+         line-height: 50px;
+     }
+
+     .favorite-title span::after {
+        
+        width: 198px;
+        height: 42.96px;
+        top: 23px;
+        left: 1px;
+        
+    }
+
+    .favorite__row-item > img {
+        width: 525px;
+        height: 360px;
+    }
+
+    .favorite__row-bott {
+        width: 519px;
+    }
+
+    .favorite__row-soc {
+        font-size: 20px;
+        line-height: 36px;
+    }
+
+    .favorite__row-link {
+        font-size: 19px;
+        line-height: 30px;
+    }
+
+    .arrow {
+        height: 20px;
+      
+    }
+ }
+
+ @media (max-width: 1105px) {
+
+    .favorite__row-item > img {
+        width: 834px;
+        height: 575px;
+    }
+
+     
+   
+    .favorite-title {
+       
+        font-size: 48px;
+        line-height: 50px;
+        margin-bottom: 118px;
+    }
+   
+     
+   
+    .favorite-title span::after {
+        
+        background: url(/img/favorite-brush.png) no-repeat;
+        
+        width: 190px;
+        height: 31.96px;
+        top: 31px;
+        left: 78px;
+        
+    }
+
+    .favorite__row {
+        flex-wrap: wrap;
+        gap: 53px;
+    }
+   
+    
+   
+   
+    .favorite__row-bott {
+        
+        width: 824px
+    }
+     
+   
+    .favorite__row-desc {
+        margin-top: 28px;
+        
+    }
+   
+   
+    .favorite__row-soc {
+        
+        font-size: 32px;
+        line-height: 50px;
+       
+ 
+    }
+   
+    .favorite__row-link {
+       
+        font-size: 24px;
+      
+    }
+   
+ }  
+
+ @media (max-width: 868px) {
+    .favorite-title {
+        margin-bottom: 40px;
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .favorite-title span::after {
+        width: 198px;
+        height: 42.96px;
+        top: 23px;
+        left: 1px;
+    }
+
+    .favorite__row {
+        
+        gap: 22px;
+    }
+
+    .favorite__row-item > img {
+        width: 525px;
+        height: 360px;
+    }
+
+    .favorite__row-bott {
+        width: 519px;
+    }
+
+    .favorite__row-desc {
+        margin-top: 18px;
+    }
+
+    .favorite__row-soc {
+        font-size: 20px;
+        line-height: 36px;
+    }
+
+    .favorite__row-link {
+        font-size: 19px;
+        line-height: 30px;
+    }
+ }
+
+ @media (max-width: 553px)   {
+     .favorite {
+        margin-top: 100px;
+        margin-bottom: 150px;
+    }
+
+    .favorite__row-item > img {
+        width: 343px;
+        height: 239px;
+    }
+
+    .favorite__row-bott {
+        width: 337px;
+    }
+    
+    .favorite__row-desc {
+        margin-top: 4px;
+    }
+    
+ }
+   
+
